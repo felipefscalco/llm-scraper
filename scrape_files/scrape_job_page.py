@@ -9,6 +9,8 @@ from crawl4ai.extraction_strategy import LLMExtractionStrategy
 
 load_dotenv()
 
+BASE_URL = "https://www.seek.com.au/job/83035215"
+
 class Advertise(BaseModel):
     job_url: str
     job_title: str
@@ -48,7 +50,7 @@ async def main():
     async with AsyncWebCrawler(config=browser_cfg) as crawler:
         # 4. Let's say we want to crawl a single page
         result = await crawler.arun(
-            url="https://www.seek.com.au/job/83035215",
+            url=BASE_URL,
             config=crawl_config
         )
 
